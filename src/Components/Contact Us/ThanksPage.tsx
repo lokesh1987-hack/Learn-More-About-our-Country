@@ -29,7 +29,7 @@ console.log(userDetails)
     <div className=" w-25">
       <div className="container border shadow bg-light">
         <div className="mt-4 text-center">
-          <p className="h3">Thanks For Contact Us</p>
+          <p className="h1">Thanks For Contact Us</p>
         </div>
         <hr />
         <div >
@@ -37,8 +37,8 @@ console.log(userDetails)
             return (
               <div key={index} className="ms-4 text-start">
                 <p className="h5">Name : {user.name}</p>
-                <p className="p">email : {user.email} </p>
-                <p className="p">number : {user.phone_number}</p>
+                <p className="h5">email : {user.email} </p>
+                <p className="h5">number : {user.phone_number}</p>
               </div>
             );
           })}

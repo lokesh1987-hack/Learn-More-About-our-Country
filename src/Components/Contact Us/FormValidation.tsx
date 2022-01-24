@@ -29,7 +29,11 @@ function FormValidation() {
         email: "",
     })
 
-    // const [valid, setValid] = useState({})
+    // const [valid, setValid] = useState({
+    //     name: false,
+    //     phone_number: false,
+    //     email: false,
+    // })
 
     const { name, phone_number, email } = userData;
 
@@ -62,7 +66,7 @@ function FormValidation() {
                     <div className="mb-3">
                         <label htmlFor ="name" className="form-label">First Name </label>
                         <input name="name" value={name} type="name" onChange={e => OnChange(e)} className="form-control" id="name" required />
-                        {(!userData.name) && <p>Required*</p>}
+                        {(!userData.name) && <p>Required*</p> }
                         {(userData.name.length < 4) && (userData.name.length > 0) && <p>Enter name greater than 4 letter</p>}
                     </div>
                     <div className="mb-3">

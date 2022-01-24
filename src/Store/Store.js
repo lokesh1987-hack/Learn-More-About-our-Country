@@ -4,10 +4,9 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import rootReducer from "../Reducers/index";
 
 const middleware = [thunk];
-const initialState = [];
+// const initialState = [];
 const Store = createStore(
   rootReducer,
-  initialState,
   composeWithDevTools(applyMiddleware(...middleware))
 );
 
