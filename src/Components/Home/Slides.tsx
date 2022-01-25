@@ -45,6 +45,34 @@ function Slides() {
             </p>
           </Carousel.Caption>
         </Carousel.Item>
+        <Carousel.Item interval={1000}>
+          <img
+            style={{ height: "700px", width: "100%" }}
+            className="d-block w-100"
+            src="https://tr-images.condecdn.net/image/b06yrdKjOXa/crop/2040/f/2021.jpg"
+            alt="Third slide"
+          />
+          <Carousel.Caption>
+            <h3 className="text-dark" >Amazing Places Of Different Places</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item interval={1000}>
+          <img
+            style={{ height: "700px", width: "100%" }}
+            className="d-block w-100"
+            src="https://tr-images.condecdn.net/image/b06yrdKjOXa/crop/2040/f/2021.jpg"
+            alt="Third slide"
+          />
+          <Carousel.Caption>
+            <h3 className="text-dark" >Amazing Places Of Different Places</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
       </Carousel>
     </div>
   );
