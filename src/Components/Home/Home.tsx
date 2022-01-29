@@ -1,18 +1,16 @@
 import React from 'react'
 import { useParams } from 'react-router'
+import Footer from './Footer'
 import Section from './Section'
 import Slides from './Slides'
 
 function Home() {
 
     return (
-        <div>
-            <div>
+        <div className="bg-light">
                 <Slides />
-            </div>
-            <div>
                 <Section />
-            </div>
+                <Footer />
         </div>
     )
 }

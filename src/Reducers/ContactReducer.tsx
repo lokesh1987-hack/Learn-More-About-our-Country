@@ -9,7 +9,7 @@ export default function contactReducer(state = initialState, action: { type: any
         case GET_DATA_FROM_CONTACT:
             return {
                 ...state,
-                contact_data: [...state.contact_data,action.payload]
+                contact_data: [action.payload]
             }
         case DISPLAY_CONTACT_DATA:
             return {

@@ -17,7 +17,7 @@ function Update() {
 
   useEffect(() => {
     landingPage();
-  }, []);
+  },[]);
 
   const landingPage = () => {
     let getLocalData = JSON.parse(localStorage.getItem("fetchdata") || "true");
@@ -40,7 +40,7 @@ function Update() {
 
   };
 
-  // console.log(getLocalData, "singleData ");
+ 
 
   const onChange = (e: any) => {
     setUpdatedData({ ...updatedData, [e.target.name]: e.target.value });

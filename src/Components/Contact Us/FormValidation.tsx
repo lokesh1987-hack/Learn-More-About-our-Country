@@ -1,10 +1,8 @@
-import { userInfo } from 'os';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getFormData } from '../../Actions/ContactFormAction'
 import { useDispatch } from 'react-redux'
- 
-// type ContextType = { userData: userDataTypes | null };
+
 
 interface userDataTypes {
     name:string,
@@ -13,7 +11,7 @@ interface userDataTypes {
 }
 interface Error {
     name?:string,
-    phone_number?:string,
+    phone_number?:boolean,
     email?:string
 }
 
@@ -29,11 +27,7 @@ function FormValidation() {
         email: "",
     })
 
-    // const [valid, setValid] = useState({
-    //     name: false,
-    //     phone_number: false,
-    //     email: false,
-    // })
+
 
     const { name, phone_number, email } = userData;
 
@@ -43,14 +37,15 @@ function FormValidation() {
 
     const submit = (e: any) => {
         e.preventDefault()
-        // console.log(userData)
         dispatch(getFormData(userData))
-        // dispatch(getFormData(userData))
         navigate("thanks")
+        
 
     }
     
-    const valid: Error = {}
+    const valid: Error = {
+        phone_number:false
+    }
     
 
     // console.log("valid=",valid)
@@ -66,16 +61,17 @@ function FormValidation() {
                     <div className="mb-3">
                         <label htmlFor ="name" className="form-label">First Name </label>
                         <input name="name" value={name} type="name" onChange={e => OnChange(e)} className="form-control" id="name" required />
-                        {(!userData.name) && <p>Required*</p> }
-                        {(userData.name.length < 4) && (userData.name.length > 0) && <p>Enter name greater than 4 letter</p>}
+                        {(!userData.name) && <p className="mt-2 text-danger">Required*</p> }
+                        {(userData.name.length < 4) && (userData.name.length > 0) && <p className="mt-2 text-danger">Enter name greater than 4 letter</p>}
                     </div>
                     <div className="mb-3">
                         <label htmlFor="phone_number" className="form-label">Phone Number</label>
                         <div className="d-flex">
                             <input type="number" placeholder="  + 91" className="p-2 ps-2 me-3 w-25" disabled />
                             <input name="phone_number" value={phone_number} type="number" onChange={e => OnChange(e)} className="form-control w-25" id="phone_number" required />
-                        
-                            {(userData.phone_number.length > 10) && <p className="w-25 ms-4 pt-1" >Enter valid phone_number</p>}
+                            {(!userData.phone_number) && <p className=" mt-3 ms-2 h6 text-danger">Required*</p> }
+                            {(userData.phone_number.length === 10 )?<p className="mt-2 ms-5 h5 text-success"> Correct ✓{valid.phone_number = true}</p>  :<p className="mt-3 ms-3 h6 text-danger">(Enter Valid Number)</p>}
+                           
                         </div>
 
                     </div>
@@ -84,7 +80,7 @@ function FormValidation() {
                         <input name="email" value={email} type="email" onChange={e => OnChange(e)} className="form-control" id="email" required />
                     </div>
 
-                    {(Object.keys(valid).length === 0 &&
+                    {(valid.phone_number === true &&
                     <div className="mb-3 d-flex">
                         <button type="submit" className="btn btn-primary">Submit</button>
                     </div>
