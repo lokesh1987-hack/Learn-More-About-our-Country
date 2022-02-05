@@ -16,7 +16,9 @@ function Countries() {
   const [type, setType] = useState("");
   const [Loading, setLoding] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [perPageData, setPerPageData] = useState(20);
+  // const [perPageData, setPerPageData] = useState(20);
+
+
 
   const dispatch = useDispatch();
 
@@ -73,6 +75,7 @@ function Countries() {
 
   // pagination
 
+  const perPageData = 20
  
   const indexOfLastCard = currentPage * perPageData;
   const indexOfFirstCard = indexOfLastCard - perPageData;
@@ -189,7 +192,7 @@ function Countries() {
               );
             })}
 
-            <div>
+            <div className="sticky-bottom">
               <Pagination perPageData={perPageData} totalCards={filterData.length} paginate={paginate} currentPage={currentPage} />
             </div>
           </div>

@@ -1,5 +1,3 @@
-import React from 'react'
-import { useParams } from 'react-router'
 import Footer from './Footer'
 import Section from './Section'
 import Slides from './Slides'

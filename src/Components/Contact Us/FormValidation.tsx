@@ -10,9 +10,7 @@ interface userDataTypes {
     email:string
 }
 interface Error {
-    name?:string,
     phone_number?:boolean,
-    email?:string
 }
 
 function FormValidation() {
@@ -54,7 +52,7 @@ function FormValidation() {
         
         <div>
             <div className="text-center m-5">
-                <h1>Contact Form</h1>
+                <h1>Contact Us</h1>
             </div>
             <div className="container border shadow p-5 w-50">
                 <form onSubmit={e => submit(e)}>
@@ -70,7 +68,7 @@ function FormValidation() {
                             <input type="number" placeholder="  + 91" className="p-2 ps-2 me-3 w-25" disabled />
                             <input name="phone_number" value={phone_number} type="number" onChange={e => OnChange(e)} className="form-control w-25" id="phone_number" required />
                             {(!userData.phone_number) && <p className=" mt-3 ms-2 h6 text-danger">Required*</p> }
-                            {(userData.phone_number.length === 10 )?<p className="mt-2 ms-5 h5 text-success"> Correct ✓{valid.phone_number = true}</p>  :<p className="mt-3 ms-3 h6 text-danger">(Enter Valid Number)</p>}
+                            {(userData.phone_number.length === 10 )?<p className="mt-2 ms-5 h5 text-success"> Correct ✔️{valid.phone_number = true}</p> :(userData.phone_number.length > 10  || userData.phone_number.length > 0 ) && <p className="mt-3 ms-3 h6 text-danger"> ❌ Enter Valid Number</p>}
                            
                         </div>
 
@@ -80,11 +78,11 @@ function FormValidation() {
                         <input name="email" value={email} type="email" onChange={e => OnChange(e)} className="form-control" id="email" required />
                     </div>
 
-                    {(valid.phone_number === true &&
+                    
                     <div className="mb-3 d-flex">
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                       {(valid.phone_number)?<button type="submit" className="btn btn-primary">Submit</button>:<button type="submit" className="btn btn-primary" disabled>Submit</button> } 
                     </div>
-                    )}
+                    
                 </form>
 
             </div>
